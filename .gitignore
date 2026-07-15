@@ -1,0 +1,15 @@
+# Build output
+springpoc/target/
+__pycache__/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Local tooling & personal notes
+.claude/
+MENTOR_PRESENTATION.md
+
+# Unrelated local files
+*.exe
