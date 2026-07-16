@@ -1,0 +1,29 @@
+{
+  "model_version": "2.0-full-features",
+  "algorithm": "logistic_regression",
+  "churn_f1": 0.6069,
+  "roc_auc": 0.8351,
+  "numeric_features": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges",
+    "SeniorCitizen"
+  ],
+  "categorical_features": [
+    "gender",
+    "Partner",
+    "Dependents",
+    "PhoneService",
+    "MultipleLines",
+    "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod"
+  ]
+}
