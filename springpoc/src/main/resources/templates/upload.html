@@ -19,6 +19,10 @@
     <hr>
 
     <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+    <div class="alert alert-success" th:if="${scanMessage}">
+        <span th:text="${scanMessage}"></span> <a th:href="@{/dashboard}">Open dashboard</a>
+    </div>
+    <div class="alert alert-warning" th:if="${scanWarning}" th:text="${scanWarning}"></div>
 
     <form th:action="@{/upload}" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
