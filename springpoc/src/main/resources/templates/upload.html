@@ -8,40 +8,48 @@
 </head>
 <body>
 
-<div class="container mt-5" style="max-width: 640px;">
+<div class="d-flex">
 
-    <h2>Upload Customer Data</h2>
-    <p class="text-muted">
-        CSV with the standard customer columns
-        (customerID, gender, tenure, Contract, MonthlyCharges, ...).
-        A new upload replaces the previous data set.
-    </p>
-    <hr>
+    <nav th:replace="~{fragments :: sidebar('upload')}"></nav>
 
-    <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
-    <div class="alert alert-success" th:if="${scanMessage}">
-        <span th:text="${scanMessage}"></span> <a th:href="@{/dashboard}">Open dashboard</a>
-    </div>
-    <div class="alert alert-warning" th:if="${scanWarning}" th:text="${scanWarning}"></div>
+    <main class="flex-grow-1 p-4">
+        <div style="max-width: 640px;">
 
-    <form th:action="@{/upload}" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <input type="file" name="file" accept=".csv" class="form-control">
+            <h2>Upload Customer Data</h2>
+            <p class="text-muted">
+                CSV with the standard customer columns
+                (customerID, gender, tenure, Contract, MonthlyCharges, ...).
+                A new upload replaces the previous data set.
+            </p>
+            <hr>
+
+            <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+            <div class="alert alert-success" th:if="${scanMessage}">
+                <span th:text="${scanMessage}"></span> <a th:href="@{/dashboard}">Open dashboard</a>
+            </div>
+            <div class="alert alert-warning" th:if="${scanWarning}" th:text="${scanWarning}"></div>
+
+            <form th:action="@{/upload}" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <input type="file" name="file" accept=".csv" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+
+            <div class="card mt-4" th:if="${receipt}">
+                <div class="card-body">
+                    <h5 class="card-title">Upload complete</h5>
+                    <p class="mb-1">Rows received: <strong th:text="${receipt.rowsReceived}">0</strong></p>
+                    <p class="mb-1">Rows loaded: <strong th:text="${receipt.rowsLoaded}">0</strong></p>
+                    <p class="mb-1">Rows skipped: <strong th:text="${receipt.rowsSkipped}">0</strong></p>
+                    <ul class="mt-2 mb-0 text-muted" th:if="${!receipt.sampleErrors.isEmpty()}">
+                        <li th:each="err : ${receipt.sampleErrors}" th:text="${err}"></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
-
-    <div class="card mt-4" th:if="${receipt}">
-        <div class="card-body">
-            <h5 class="card-title">Upload complete</h5>
-            <p class="mb-1">Rows received: <strong th:text="${receipt.rowsReceived}">0</strong></p>
-            <p class="mb-1">Rows loaded: <strong th:text="${receipt.rowsLoaded}">0</strong></p>
-            <p class="mb-1">Rows skipped: <strong th:text="${receipt.rowsSkipped}">0</strong></p>
-            <ul class="mt-2 mb-0 text-muted" th:if="${!receipt.sampleErrors.isEmpty()}">
-                <li th:each="err : ${receipt.sampleErrors}" th:text="${err}"></li>
-            </ul>
-        </div>
-    </div>
+    </main>
 
 </div>
 

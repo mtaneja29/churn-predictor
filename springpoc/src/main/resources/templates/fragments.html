@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- shared sidebar; 'active' marks the current screen -->
+<nav th:fragment="sidebar(active)"
+     class="d-flex flex-column flex-shrink-0 bg-dark text-white p-3"
+     style="width: 230px; position: sticky; top: 0; height: 100vh;">
+
+    <a th:href="@{/}" class="text-white text-decoration-none mb-4">
+        <h4 class="mb-0">ChurnPredictor</h4>
+        <small class="text-secondary">churn risk platform</small>
+    </a>
+
+    <ul class="nav nav-pills flex-column gap-1">
+        <li class="nav-item">
+            <a th:href="@{/dashboard}" class="nav-link text-white"
+               th:classappend="${active == 'dashboard'} ? 'active'">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/upload}" class="nav-link text-white"
+               th:classappend="${active == 'upload'} ? 'active'">Upload data</a>
+        </li>
+    </ul>
+
+    <div class="mt-auto small text-secondary">app v1</div>
+</nav>
+
+</body>
+</html>

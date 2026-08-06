@@ -13,6 +13,8 @@ springpoc/src/main/resources/application.properties
 # Local tooling & personal notes
 .claude/
 MENTOR_PRESENTATION.md
+claude-context.md
 
 # Unrelated local files
 *.exe
+*.pdf
