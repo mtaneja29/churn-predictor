@@ -103,7 +103,8 @@ otherwise on the dashboard. A ready-made demo file is at `ml-service/dummy-custo
 
 ## API documentation
 
-With the Spring app running, interactive API docs are available at:
+A static REST API reference is in [docs/API.md](docs/API.md). With the app running,
+interactive docs are also available at:
 
 - **Swagger UI:** http://localhost:8080/swagger-ui/index.html
 - **ML service (FastAPI) docs:** http://localhost:8000/docs
