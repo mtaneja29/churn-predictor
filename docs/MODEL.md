@@ -216,6 +216,9 @@ A FastAPI service loads `churn_model.joblib` once at startup and exposes three e
 | POST | `/predict-batch` | score a list of customers in one call |
 | GET | `/health` | service status + model version/algorithm |
 
+With the service running, FastAPI auto-generates interactive Swagger documentation for these
+endpoints at **http://localhost:8000/docs** (and the raw OpenAPI spec at `/openapi.json`).
+
 **Input validation.** Requests are validated by a Pydantic model covering all 19 features
 before they reach the model:
 
